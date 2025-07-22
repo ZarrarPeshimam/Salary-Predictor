@@ -1,0 +1,221 @@
+.dashboard {
+  padding: 2rem;
+  text-align: center;
+  
+}
+
+@keyframes fadeInSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2d5bd8; /* or any dark shade */
+  color: var(--text-primary);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  z-index: 1000;
+  height: 40px;
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: space-between; /* left alignment */
+}
+
+.navbar img {
+  height: 30px; /* Adjust as needed */
+  width: 30px; /* Adjust as needed */
+  margin-left: 10px;
+}
+
+.navbar-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Push content down below navbar */
+.dashboard-content {
+  padding-top: 5rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #c9d1d9;
+}
+
+.metrics-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+  /* Entry animation */
+  opacity: 0; /* Initial state for fade-in */
+  transform: translateY(20px); /* Initial state for slide-up */
+  animation:
+    fadeIn 0.8s ease-out forwards 0.2s,
+    slideUp 0.8s ease-out forwards 0.2s; /* Apply two animations */
+  will-change: transform, opacity; /* helps with performance */
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgb(7, 24, 177), #0a153b);
+  border-radius: 12px;
+  padding: 30px 40px;
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out; /* Keep this for hover */
+}
+
+/* Define separate keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); }
+  to { transform: translateY(0); }
+}
+
+.metric-card:hover {
+  transform: translateY(-9px);
+}
+
+.metric-label {
+  font-size: 18px;
+  color: #e7e7e7;
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #8be9fd;
+}
+
+/* 🔁 Responsive Enhancements */
+@media screen and (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .metric-card {
+    padding: 20px 25px;
+    min-width: 90%;
+  }
+
+  .metric-label {
+    font-size: 16px;
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+
+  .metric-value {
+    font-size: 24px;
+  }
+}
+
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+}
+
+@media screen and (max-width: 768px) {
+  .chart-wrapper {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chart-wrapper {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #eef4ff;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap; /* allow wrapping on small screens */
+  margin-bottom: 2.5rem;
+  animation: fadeInSlideRight 1s ease-out forwards;
+  
+}
+
+.intro-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.intro-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #081057;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem; /* ⬅️ reduce vertical space */
+    padding: 1rem;
+  }
+
+  .intro-logo {
+    margin-bottom: 0;
+  }
+
+  .intro-text p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+

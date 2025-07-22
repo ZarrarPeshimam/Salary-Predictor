@@ -1,0 +1,167 @@
+.simple-predictor-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.simple-predictor-card {
+  max-width: 720px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.simple-predictor-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.simple-predictor-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.simple-predictor-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.simple-input-group {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.simple-input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.simple-input-group input,
+.simple-input-group select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.simple-submit-group {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.simple-submit-group button {
+  padding: 0.75rem 1.5rem;
+  /*background-color: #2563eb;*/
+  background-color: #109f6d;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.simple-submit-group button:hover {
+  background-color: #08572d;
+}
+.simple-submit-group button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.simple-prediction-result {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.simple-predicted-value {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.simple-error-message {
+  margin-top: 1rem;
+  color: #dc2626;
+  text-align: center;
+}
+
+/* 🔁 Responsive tweaks */
+@media screen and (max-width: 768px) {
+  .simple-input-group {
+    width: 100%;
+  }
+
+  .simple-predictor-container {
+    padding: 1rem;
+  }
+
+  .simple-predictor-card {
+    padding: 1.5rem;
+  }
+
+  .simple-predictor-title {
+    font-size: 1.5rem;
+  }
+
+  .simple-predictor-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .simple-input-group input,
+  .simple-input-group select {
+    font-size: 0.95rem;
+  }
+
+  .simple-submit-group button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .simple-predictor-title {
+    font-size: 1.3rem;
+  }
+
+  .simple-predictor-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .simple-predicted-value {
+    font-size: 1.25rem;
+  }
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 768px) {
+  .chart-wrapper {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chart-wrapper {
+    padding: 0.5rem 0.25rem;
+  }
+}
