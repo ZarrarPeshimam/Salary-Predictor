@@ -62,7 +62,6 @@
 
 .simple-submit-group button {
   padding: 0.75rem 1.5rem;
-  /*background-color: #2563eb;*/
   background-color: #109f6d;
   color: white;
   font-size: 1rem;
@@ -76,6 +75,7 @@
 .simple-submit-group button:hover {
   background-color: #08572d;
 }
+
 .simple-submit-group button:focus {
   outline: none;
   box-shadow: none;
@@ -98,14 +98,10 @@
   text-align: center;
 }
 
-/* 🔁 Responsive tweaks */
+/* Tablet adjustments */
 @media screen and (max-width: 768px) {
-  .simple-input-group {
-    width: 100%;
-  }
-
   .simple-predictor-container {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .simple-predictor-card {
@@ -120,6 +116,10 @@
     font-size: 0.95rem;
   }
 
+  .simple-input-group {
+    width: 100%;
+  }
+
   .simple-input-group input,
   .simple-input-group select {
     font-size: 0.95rem;
@@ -130,6 +130,7 @@
   }
 }
 
+/* Mobile adjustments */
 @media screen and (max-width: 480px) {
   .simple-predictor-title {
     font-size: 1.3rem;
@@ -140,28 +141,14 @@
   }
 
   .simple-predicted-value {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
-}
 
-.chart-wrapper {
-  width: 100%;
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 1rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-@media screen and (max-width: 768px) {
-  .chart-wrapper {
-    padding: 1rem 0.5rem;
+  .simple-predictor-card {
+    padding: 1rem;
   }
-}
 
-@media screen and (max-width: 480px) {
-  .chart-wrapper {
-    padding: 0.5rem 0.25rem;
+  .simple-predictor-container {
+    padding: 1rem;
   }
 }

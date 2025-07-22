@@ -59,13 +59,6 @@
   justify-content: space-around;
   gap: 30px;
   flex-wrap: wrap;
-  /* Entry animation */
-  opacity: 0; /* Initial state for fade-in */
-  transform: translateY(20px); /* Initial state for slide-up */
-  animation:
-    fadeIn 0.8s ease-out forwards 0.2s,
-    slideUp 0.8s ease-out forwards 0.2s; /* Apply two animations */
-  will-change: transform, opacity; /* helps with performance */
 }
 
 .metric-card {
