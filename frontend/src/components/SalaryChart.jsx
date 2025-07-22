@@ -7,12 +7,25 @@ import {
   LineElement,
   PointElement,
   Legend,
-  Tooltip
+  Tooltip,
+  BarController,
+  LineController, // ✅ Add the missing controllers
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 import axios from "axios";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Legend, Tooltip);
+// ✅ Register all components including controllers
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  BarController,
+  LineController,
+  Legend,
+  Tooltip
+);
 
 const SalaryChart = () => {
   const [bins, setBins] = useState([]);
@@ -23,7 +36,6 @@ const SalaryChart = () => {
     axios.get("https://salary-predictor-backend-app.onrender.com/salary-data").then((res) => {
       const salaries = res.data;
 
-      // 🔹 Binning logic
       const binSize = 10000;
       const maxSalary = Math.max(...salaries);
       const binCount = Math.ceil(maxSalary / binSize);
@@ -36,7 +48,6 @@ const SalaryChart = () => {
 
       const binLabels = freq.map((_, i) => `${i * 10}k`);
 
-      // 🔹 KDE (very basic smooth estimate)
       const kdeEstimate = freq.map((_, i, arr) => {
         const prev = arr[i - 1] || 0;
         const curr = arr[i];
@@ -51,90 +62,88 @@ const SalaryChart = () => {
   }, []);
 
   const data = {
-  labels: bins,
-  datasets: [
-    {
-      type: "bar",
-      label: "Salary Frequency",
-      data: frequencies,
-      backgroundColor: "#22c55e", // Tailwind green-500
-      borderRadius: 6,
-    },
-    {
-      type: "line",
-      label: "KDE Curve",
-      data: kde,
-      borderColor: "#4ade80", // Tailwind green-400
-      tension: 0.4,
-      fill: false,
-      pointBackgroundColor: "#bbf7d0", // green-200
-    },
-  ],
-};
+    labels: bins,
+    datasets: [
+      {
+        type: "bar",
+        label: "Salary Frequency",
+        data: frequencies,
+        backgroundColor: "#22c55e",
+        borderRadius: 6,
+      },
+      {
+        type: "line",
+        label: "KDE Curve",
+        data: kde,
+        borderColor: "#4ade80",
+        tension: 0.4,
+        fill: false,
+        pointBackgroundColor: "#bbf7d0",
+      },
+    ],
+  };
 
-const options = {
-  // ... same structure
-  plugins: {
-    legend: {
-      position: "top",
-      labels: {
-        color: "#bbf7d0", // green-200
-        font: {
-          size: 12,
-          weight: "500",
+  const options = {
+    plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          color: "#bbf7d0",
+          font: {
+            size: 12,
+            weight: "500",
+          },
         },
       },
-    },
-    title: {
-      display: true,
-      text: "Salary Distribution",
-      color: "#4ade80", // green-400
-      font: {
-        size: 18,
-        weight: "bold",
-      },
-    },
-  },
-  scales: {
-    x: {
       title: {
         display: true,
-        text: "Salary",
-        color: "#bbf7d0",
+        text: "Salary Distribution",
+        color: "#4ade80",
         font: {
-          size: 14,
+          size: 18,
           weight: "bold",
         },
       },
-      ticks: {
-        color: "#f0fdf4", // very soft green background tone
-      },
     },
-    y: {
-      title: {
-        display: true,
-        text: "Frequency",
-        color: "#bbf7d0",
-        font: {
-          size: 14,
-          weight: "bold",
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Salary",
+          color: "#bbf7d0",
+          font: {
+            size: 14,
+            weight: "bold",
+          },
+        },
+        ticks: {
+          color: "#f0fdf4",
         },
       },
-      ticks: {
-        color: "#f0fdf4",
+      y: {
+        title: {
+          display: true,
+          text: "Frequency",
+          color: "#bbf7d0",
+          font: {
+            size: 14,
+            weight: "bold",
+          },
+        },
+        ticks: {
+          color: "#f0fdf4",
+        },
       },
     },
-  },
-};
-
+  };
 
   return (
     <div className="p-6 rounded-xl shadow-md overflow-x-auto">
       <h2 className="text-3xl font-bold text-blue-600 mb-4 mt-6 text-center">
-      Dataset Distribution
-    </h2>
-  <Chart type="bar" data={data} options={options} />
-</div>
+        Dataset Distribution
+      </h2>
+      <Chart type="bar" data={data} options={options} />
+    </div>
   );
 };
 
