@@ -42,7 +42,7 @@ const handleJobTitleChange = (e) => {
 
     try {
       // Ensure the backend server is running at http://localhost:5000
-      const res = await axios.post('http://localhost:5000/predict', form);
+      const res = await axios.post('https://salary-predictor-backend-app.onrender.com/predict', form);
       console.log("Response from backend:", res.data);
       setPrediction(res.data.salary);
     } catch (err) {

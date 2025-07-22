@@ -20,7 +20,7 @@ const SalaryChart = () => {
   const [kde, setKde] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/salary-data").then((res) => {
+    axios.get("https://salary-predictor-backend-app.onrender.com/salary-data").then((res) => {
       const salaries = res.data;
 
       // 🔹 Binning logic
