@@ -138,13 +138,19 @@ const SalaryChart = () => {
   };
 
   return (
-    <div className="p-6 rounded-xl shadow-md overflow-x-auto">
-      <h2 className="text-3xl font-bold text-blue-600 mb-4 mt-6 text-center">
+    <div className="w-full px-4 sm:px-6 lg:px-12">
+      <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 mt-7 text-center">
         Dataset Distribution
       </h2>
-      <Chart type="bar" data={data} options={options} />
+      <div className="w-full max-w-full overflow-x-auto p-4 rounded-xl shadow-md">
+        <div className="w-full h-[300px] sm:h-[400px] md:h-[550px]">
+          <Chart type="bar" data={data} options={{ ...options, maintainAspectRatio: false }} />
+        </div>
+      </div>
+    
     </div>
   );
+
 };
 
 export default SalaryChart;

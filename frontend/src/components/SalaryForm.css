@@ -152,3 +152,9 @@
     padding: 1rem;
   }
 }
+
+.simple-predictor-form input,
+.simple-predictor-form select {
+  background-color: white;   /* already set */
+  color: #111;               /* 👈 ADD THIS */
+}

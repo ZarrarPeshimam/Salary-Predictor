@@ -74,7 +74,7 @@ const handleJobTitleChange = (e) => {
     >
         <div className="simple-predictor-card">
           <h2 className="simple-predictor-title">Get Your Salary Estimate</h2>
-          <p className="simple-predictor-subtitle">Enter your details to predict your potential earnings.</p>
+          <p className="hidden sm:block simple-predictor-subtitle">Enter your details to predict your potential earnings.</p>
 
           <form onSubmit={handleSubmit} className="simple-predictor-form">
             <div className="simple-input-group">
