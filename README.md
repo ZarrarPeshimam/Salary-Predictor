@@ -3,7 +3,8 @@
 A full-stack machine learning-powered web app that predicts salaries based on user input like education level, experience, company size, and job role. Built with **React**, **Flask**, **Tailwind CSS**, and a **Random Forest Regression** model.
 
 > 🚀 **Live Demo:** [https://salary-predictor-three.vercel.app/](https://salary-predictor-three.vercel.app/)  
-> 🧠 **Model:** Trained Random Forest Regressor  
+> 🧠 **Model:** Trained Random Forest Regressor
+> 📊 **Dataset:** [Kaggle - Salary Prediction Dataset](https://www.kaggle.com/datasets/mohithsairamreddy/salary-data)  
 > 🧰 **Tech Stack:** MERN (React frontend) + Flask (backend)
 
 ---
