@@ -26,7 +26,7 @@ const Dashboard = () => {
           <p>
             This project was developed as part of {"IBM Virtual Internship Program"}.
             <br />
-            Website is a woking prototype that allows users to get prediction on there salary based on their personal information.
+            Website is a working prototype that allows users to get prediction on there salary based on their personal information.
             A model was trained on a dataset to predict salaries based on various features such as age, Education, Job Title, etc.
           </p>
         </div>
