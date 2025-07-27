@@ -41,7 +41,6 @@ const Dashboard = () => {
           <p className="metric-value">{mockR2}</p>
         </div>
       </div>
-      <SalaryChart />
       <SalaryForm />
     </div>
   );
