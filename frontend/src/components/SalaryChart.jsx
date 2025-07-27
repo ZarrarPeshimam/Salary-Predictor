@@ -148,18 +148,26 @@ const SalaryChart = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-full px-4 mx-auto sm:px-6 lg:px-12">
+    <div className="w-full px-4 mx-auto sm:px-6 lg:px-12">
       <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 mt-7 text-center">
         Dataset Distribution
       </h2>
-      <div className="w-full max-w-5xl mx-auto px-4 shadow-md sm:px-6 lg:px-8">
-        <div className="w-full h-[300px] sm:h-[400px] md:h-[550px] flex items-center justify-center">
+      <div className="w-full max-w-full mx-auto px-2 sm:px-4 lg:px-6 shadow-md">
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
           {loading ? (
             <p className="text-green-400 text-lg">Loading chart...</p>
           ) : error ? (
             <p className="text-red-500 text-lg">{error}</p>
           ) : (
-            <Chart type="bar" data={data} options={{ ...options, maintainAspectRatio: false }} />
+            <Chart
+              type="bar"
+              data={data}
+              options={{
+                ...options,
+                maintainAspectRatio: false,
+                responsive: true,
+              }}
+            />
           )}
         </div>
       </div>
